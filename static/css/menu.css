@@ -1,0 +1,271 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 90%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+#container
+{
+    width: 99%;
+    margin: 10px 10px;
+    background-color: white;
+    color: #333;
+    line-height: 130%;
+}
+
+#header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+}
+
+#top
+{
+    margin-top: 0.1em;
+    padding: .5em;
+    background-color: #eee;
+    border-top: 1px solid #778;
+    border-bottom: 1px solid #778;
+}
+
+#top h1
+{
+    padding: 0;
+    margin: 0;
+}
+
+#top img
+{
+    clear: both;
+    padding: 0;
+    margin: 0;
+    float: right;
+}
+
+#top a {
+    text-decoration: none;
+}
+
+#top a:link { color: #448; }
+#top a:visited { color: #448; }
+
+#logowelcome
+{
+    font-size: 90%;
+    font-style: italic;
+}
+
+#navright {
+    float: right;
+    margin: 0;
+    padding-right: 10px;
+}
+
+#navigation {
+    border-bottom: 1px solid #778;
+}
+
+#navlist {
+    padding: 3px 0 0 0;
+    margin-top: 0.5em;
+    margin-bottom: 3px;
+    font: bold 12px Verdana, sans-serif;
+}
+
+#navlist li {
+    list-style: none;
+    margin: 0;
+    display: inline;
+}
+
+#navlist li a {
+    padding: 3px 0.5em;
+    margin-left: 3px;
+    border: 1px solid #778;
+    border-bottom: 1px solid #778;
+    background: #dde;
+    text-decoration: none;
+}
+
+#navlist li a:link { color: #448; }
+#navlist li a:visited { color: #448; }
+
+#navlist li a:hover {
+    color: #000;
+    background: #aae;
+    border-color: #227;
+}
+
+#navlist li a#current {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+#forms {
+    margin-left: 10px;
+}
+
+#login {
+    width: 30%;
+    margin-left: 30%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #227;
+    padding: 1px;
+    padding-left: 10%;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+#content {
+/*
+    margin-left: 10px;
+*/
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+#listcol
+{
+    float: left;
+    width: 24.9%;
+    margin: 0;
+    margin-bottom: 1em;
+    padding: 0em;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+* html #listcol
+{
+    width: 24.9%;
+/*
+    width: 29.4%;
+    margin-left: -3.5%;
+    margin-right: -1%;
+*/
+}
+
+#listcol h3, #midcol h3, #rightcol h3
+{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: blue;
+    color: white;
+    margin: 0px;
+    padding: 2px;
+ }
+
+#listcol p  { margin: 0 0 1em 0; }
+
+#listcol ul
+{
+    width: 100%;  /* room for 3 columns */
+    list-style: none;
+    padding: 1px;
+}
+#listcol ul li
+{
+    float: left;
+    width: 95%;   /* accommodate the widest item */
+    list-style: none;
+    padding: 1px;
+    margin: 2px;
+    border: 1px solid gray;
+}
+/* stop the floating after the list */
+#listcol br
+{
+    clear: both;
+}
+
+/* anchor styling */
+#listcol ul li a
+{
+    display: block;
+    text-decoration: none;
+}
+#listcol ul li a:hover
+{
+    color: white;
+    background-color: brown;
+}
+#listcol ul li a:visited
+{
+    color: blue;
+}
+
+h1.tagcloud
+{
+    text-align: left;
+    font-size: 200%;
+    font-style: italic;
+    margin-left: 20px;
+    color: #22a;
+}
+ul.tagcloud
+{
+    list-style-type: none;
+    padding: 0;
+    padding-left: 5%;
+    padding-right: 7%;
+    line-height: 2em;
+    text-align: center;
+}
+
+ul.tagcloud li 
+{
+	display: inline;
+	line-height: 3em;
+	white-space: nowrap;
+}
+
+ul.tagcloud li:after 
+{
+	white-space: normal;
+	content: ", ";
+}
+
+ul.tagcloud li:last-child:after 
+{
+	content: "";
+}
+
+ul.tagcloud li a
+{
+    text-decoration: none;
+}
+ul.tagcloud li a:visited
+{
+    color: #00f;
+}
+
+ul.tagcloud .count 
+{
+	font-size: 0.875em;
+	line-height: 1.714em;
+	color: #888;
+}
+
+#footer
+{
+    clear: both;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: .1em;
+    color: gray;
+    background-color: #eee;
+    border-top: 1px solid gray;
+    text-align: center;
+    font-size: 60%;
+}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+<ul id="navlist">
+  <li><a href="{{ url_for('index') }}">Cloud</a></li>
+  <li><a href="{{ url_for('links') }}">Links</a></li>
+  <li id="active"><a href="{{ url_for('tags') }}" id="current">Tags</a></li>
+  <li><a href="{{ url_for('logout') }}">Logout</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+  <ul class="tagcloud">
+    {% for tag in tag_list: %}
+    <li><a href="{{ tag[1] }}" class="tag" style="font-size:{{ tag[2] }}%; color: {{ tag[3] }}">{{ tag[0] }}</a> <span class="count">({{ tag[4] }})</span></li>
+	{% endfor %}
+  </ul>
+</div>
+{% endblock %}
+
+{% block contentxx %}
+<div id="content">
+  <ul class="tagcloud">
+    <li><a href="viewcat.php?category=29" class="tag" style="font-size:190%; color: #22f">TAGS GO HERE</a> <span class="count">(1)</span></li>
+  </ul>
+</div>
+{% endblock %}

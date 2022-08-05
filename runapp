@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+cd ~/pycloud/flask_app
+export FLASH_APP=app
+export FLASK_ENV=development
+flask run -p 8080

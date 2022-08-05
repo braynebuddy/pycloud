@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+<ul id="navlist">
+  <li id="active"><a href="{{ url_for('index') }}" id="current">Cloud</a></li>
+  <li><a href="{{ url_for('links') }}">Links</a></li>
+  <li><a href="{{ url_for('tags') }}">Tags</a></li>
+  <li><a href="{{ url_for('logout') }}">Logout</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+  <ul class="tagcloud">
+    <li><a href="viewcat.php?category=29" class="tag" style="font-size:90%; color: #99f"></a> <span class="count">(1)</span></li>
+    <li><a href="viewcat.php?category=34" class="tag" style="font-size:160%; color: #44f">APC Vendors</a> <span class="count">(39)</span></li> 
+    <li><a href="viewcat.php?category=35" class="tag" style="font-size:182%; color: #22f">Academics</a> <span class="count">(128)</span></li> 
+    <li><a href="viewcat.php?category=33" class="tag" style="font-size:140%; color: #55f">Advanced Control</a> <span class="count">(14)</span></li> 
+    <li><a href="viewcat.php?category=59" class="tag" style="font-size:136%; color: #55f">Ajax</a> <span class="count">(11)</span></li> 
+    <li><a href="viewcat.php?category=71" class="tag" style="font-size:140%; color: #55f">Amateur Radio</a> <span class="count">(14)</span></li> 
+  </ul>
+</div>
+{% endblock %}
