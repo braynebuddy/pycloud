@@ -54,4 +54,4 @@ def links():
 
     linklist = []
 
-    return linklist[]
+    return linklist
