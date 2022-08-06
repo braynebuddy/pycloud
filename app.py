@@ -126,7 +126,7 @@ def tag_content():
             tag_url = f"http://tag{id[0]}.url"
             tag_colr = f"#11f"
             tag_count = linkcount[id[0]] #linkid[i][2] #f"{4*i}"
-            tag_size = int(min_size + (linkcount[id[0]] - min_count) * size_step) #f"{100+2*id[0]}"
+            tag_size = int(min_size + (math.log10(linkcount[id[0]]) - min_qty) * size_step) #f"{100+2*id[0]}"
             taglist.append([tag_desc,tag_url,tag_size,tag_colr,tag_count])
 
     return taglist
