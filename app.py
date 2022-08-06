@@ -7,7 +7,7 @@ from sqlite3 import Error
 
 import math
 
-import data
+import sql_data
 import cloud
 
 app = Flask(__name__)
@@ -33,7 +33,7 @@ def dologin():
     if request.method == "POST":
         email = request.form.get("email")
         passwd = request.form.get("passwd")
-        db = data.create_connection('pycloud.db')
+        db = sql_data.create_connection('pycloud.db')
         if db:
             sql = "SELECT email, passwd, name FROM menu_user"
             cursor = db.execute(sql)

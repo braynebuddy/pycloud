@@ -1,6 +1,6 @@
 import math
 
-import data
+import sql_data
 import tag
 import link
 
@@ -10,7 +10,7 @@ def tags():
     tagid = tag.get_ids()
     linkid = link.get_ids()
 
-    taglink = data.get_taglinks()
+    taglink = sql_data.get_taglinks()
 
     taglist = []
     max_count = 0
@@ -50,7 +50,7 @@ def links():
     tagid = tag.get_ids()
     linkid = link.get_ids()
 
-    taglink = data.get_taglinks()
+    taglink = sql_data.get_taglinks()
 
     linklist = []
 

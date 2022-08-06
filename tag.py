@@ -1,10 +1,10 @@
-import data
+import sql_data
 
 # Functions for managing tags
 
 def get_ids():
     t = {}
-    with data.create_connection('pycloud.db') as db:
+    with sql_data.create_connection('pycloud.db') as db:
         sql = "SELECT tag_id, name FROM menu_tag"
         cursor = db.execute(sql)
         for row in cursor:

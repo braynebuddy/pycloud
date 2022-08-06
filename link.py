@@ -1,10 +1,10 @@
-import data
+import sql_data
 
 # Functions for working with links (i.e., URLs)
 
 def get_ids():
     l = {}
-    with data.create_connection('pycloud.db') as db:
+    with sql_data.create_connection('pycloud.db') as db:
         sql = "SELECT link_id, name, url, clicks FROM menu_link"
         cursor = db.execute(sql)
         for row in cursor:
