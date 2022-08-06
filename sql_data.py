@@ -1,3 +1,6 @@
+import sqlite3
+from sqlite3 import Error
+
 # pycloud database access
 def create_connection(fn):
     conn = None

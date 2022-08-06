@@ -2,10 +2,6 @@ from flask import Flask
 from flask import render_template
 from flask import redirect, request, session
 from flask_session import Session
-import sqlite3
-from sqlite3 import Error
-
-import math
 
 import sql_data
 import cloud
