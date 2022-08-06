@@ -5,6 +5,8 @@ from flask_session import Session
 import sqlite3
 from sqlite3 import Error
 
+import math
+
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
@@ -113,7 +115,10 @@ def tag_content():
         if min_count == 0 or linkcount[taglink[tl][0]] < min_count:
             min_count = linkcount[taglink[tl][0]]
 
-    size_step = (max_size - min_size) / (max_count - min_count + 1)
+    max_qty = math.log10(max_count)
+    min_qty = math.log10(min_count)
+
+    size_step = (max_size - min_size) / (max_qty - min_qty + 0.1)
     
     for id in sorted(tagid.items(), key=lambda kv:(kv[1], kv[0])):
         if id[0] in linkcount:
