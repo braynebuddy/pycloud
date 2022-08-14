@@ -70,7 +70,7 @@ def links(thetag):
     size_step = (max_size - min_size) / (max_qty - min_qty + 0.1)
 
     linklist = []
-    for id in sorted(linkid.items(), key=lambda kv:operator.itemgetter(1).lower()):
+    for id in sorted(linkid.items(), key=lambda v:v[1].casefold()):
         if id[0] in taglinks:
             link_id = id[0]
             link_desc = linkid[id[0]][0] # "Link {i} Description"
