@@ -27,6 +27,6 @@ def get_links(tagid):
         sql = "SELECT taglink_id, tag_id, link_id FROM taglink"
         cursor = db.execute(sql)
         for row in cursor:
-            if row[1] == tagid:
+            if row[1] == tagid or tagid == 0:
                 linklist.append(row[2])
     return linklist
