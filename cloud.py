@@ -46,12 +46,23 @@ def tags():
     return taglist
 
 
-def links():
-    tagid = tag.get_ids()
-    linkid = link.get_ids()
+def links(thetag):
+    tagid = tag.get_ids()   # get all the tag information
+    linkid = link.get_ids() # get all the link information
 
-    taglink = sql_data.get_taglinks()
+    taglinks = tag.get_links(thetag) # get a list of links that reference this tag
 
     linklist = []
+
+    for id in sorted(linkid.items(), key=lambda kv:(kv[1], kv[0])):
+        if id[0] in taglinks:
+            link_id = id[0]
+            link_desc = linkid[id[0]][0] # "Link {i} Description"
+            link_url = linkid[id[0]][1] # Link {i} URL"
+            link_size = int(min_size + (math.log10(linkcount[id[0]]) - min_qty) * size_step) #f"{100+2*id[0]}"
+            link_colr = f"#11f"
+            link_count = linkid[id[0]][2] # Link {i} clicks"
+
+            taglist.append([tag_desc,tag_url,tag_size,tag_colr,tag_count])
 
     return linklist

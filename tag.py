@@ -11,3 +11,12 @@ def get_ids():
             t[row[0]] = row[1] 
     return t
 
+def get_links(tagid):
+    linklist = []
+    with sql_data.create_connection('pycloud.db') as db:
+        sql = "SELECT taglink_id, tag_id, link_id FROM taglink"
+        cursor = db.execute(sql)
+        for row in cursor:
+            if row[1] == tagid:
+                linklist.append(row[2])
+    return linklist
