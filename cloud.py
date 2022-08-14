@@ -59,7 +59,7 @@ def links(thetag):
     min_size = 90
 
     for tl in taglinks:
-        this_count = linkid[tl[0]][2]
+        this_count = linkid[tl][2]
         if this_count > max_count:
             max_count = this_count
         if min_count == 0 or this_count < min_count:
