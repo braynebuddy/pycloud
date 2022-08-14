@@ -63,12 +63,5 @@ def logout():
 
 @approute('/linkcount/<int:link_id>')
 def linkcount(link_id):
-    db = sql_data.create_connection('pycloud.db')
-        if db:
-            sql = "SELECT * FROM menu_user"
-            cursor = db.execute(sql)
-            for row in cursor:
-                if email==row[0] and passwd==row[1]:
-                    session["name"] = row[2]
-            db.close()
+    link.incr_clicks(link_id)
     return
