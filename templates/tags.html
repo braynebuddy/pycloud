@@ -3,7 +3,7 @@
 {% block navigation %}
 <ul id="navlist">
   <li><a href="{{ url_for('index') }}">Cloud</a></li>
-  <li><a href="{{ url_for('links/0') }}">Links</a></li>
+  <li><a href="{{ url_for('links', tagid=0) }}">Links</a></li>
   <li id="active"><a href="{{ url_for('tags') }}" id="current">Tags</a></li>
   <li><a href="{{ url_for('logout') }}">Logout</a></li>
 </ul>
