@@ -61,7 +61,7 @@ def logout():
     session["name"] = None
     return redirect("/login")
 
-@approute('/linkcount/<int:link_id>')
+@app.route('/linkcount/<int:link_id>')
 def linkcount(link_id):
     link.incr_clicks(link_id)
     return
