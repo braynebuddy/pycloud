@@ -11,6 +11,16 @@ def get_ids():
             t[row[0]] = row[1] 
     return t
 
+def get_name(tagid):
+    tagname = "None"
+    with sql_data.create_connection('pycloud.db') as db:
+        sql = "SELECT tag_id, name FROM menu_tag"
+        cursor = db.execute(sql)
+        for row in cursor:
+            if row[0] == tagid:
+                tagname = row[1] 
+    return tagname
+
 def get_links(tagid):
     linklist = []
     with sql_data.create_connection('pycloud.db') as db:

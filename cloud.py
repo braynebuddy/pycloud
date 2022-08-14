@@ -52,7 +52,7 @@ def links(thetag):
 
     taglinks = tag.get_links(thetag) # get a list of links that reference this tag
 
-    linklist = []
+    #linklist = [tagid[thetag],0,0,0,0]
 
     for id in sorted(linkid.items(), key=lambda kv:(kv[1], kv[0])):
         if id[0] in taglinks:

@@ -4,6 +4,7 @@ from flask import redirect, request, session
 from flask_session import Session
 
 import sql_data
+import tag
 import cloud
 
 app = Flask(__name__)
@@ -47,9 +48,9 @@ def add(n1, n2):
 def tags():
     return render_template('tags.html', page_title='PyCloud Menu', page_heading='PyCloud', tag_list=cloud.tags())
 
-@app.route('/links')
+@app.route('/links/<int:tagid>')
 def links():
-    return render_template('links.html', page_title='PyCloud Menu', page_heading='PyCloud')
+    return render_template('links.html', page_title='PyCloud Menu', page_heading='PyCloud', tag_name=tag.get_name(tagid), link_list=cloud.links(tagid))
 
 @app.route('/logout')
 def logout():
