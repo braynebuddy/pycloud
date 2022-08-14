@@ -52,12 +52,30 @@ def links(thetag):
 
     taglinks = tag.get_links(thetag) # get a list of links that reference this tag
 
+    linklist = []
+    max_count = 0
+    min_count = 0
+    max_size = 250
+    min_size = 90
+
+    for tl in taglinks:
+        this_count = linkid[tl[0]][2]
+        if this_count > max_count:
+            max_count = this_count
+        if min_count == 0 or this_count < min_count:
+            min_count = this_count
+
+    max_qty = math.log10(max_count)
+    min_qty = math.log10(min_count)
+
+    size_step = (max_size - min_size) / (max_qty - min_qty + 0.1)
+
     for id in sorted(linkid.items(), key=lambda kv:(kv[1], kv[0])):
         if id[0] in taglinks:
             link_id = id[0]
             link_desc = linkid[id[0]][0] # "Link {i} Description"
             link_url = linkid[id[0]][1] # Link {i} URL"
-            link_size = int(min_size + (math.log10(linkcount[id[0]]) - min_qty) * size_step) #f"{100+2*id[0]}"
+            link_size = int(min_size + (math.log10(linkid[id[0]][2]) - min_qty) * size_step) #f"{100+2*id[0]}"
             link_colr = f"#11f"
             link_count = linkid[id[0]][2] # Link {i} clicks"
 
