@@ -11,7 +11,7 @@ if (xmlhttp==null)
   {
   return true;
   }
-var url="linkcount/"+str;
+var url="../linkcount/"+str;
 xmlhttp.onreadystatechange=stateChanged;
 xmlhttp.open("GET",url,true);
 xmlhttp.send(null);

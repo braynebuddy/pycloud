@@ -5,6 +5,7 @@ from flask_session import Session
 
 import sql_data
 import tag
+import link
 import cloud
 
 app = Flask(__name__)
