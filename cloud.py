@@ -52,7 +52,6 @@ def links(thetag):
 
     taglinks = tag.get_links(thetag) # get a list of links that reference this tag
 
-    linklist = []
     max_count = 0
     min_count = 0
     max_size = 250
@@ -70,6 +69,7 @@ def links(thetag):
 
     size_step = (max_size - min_size) / (max_qty - min_qty + 0.1)
 
+    linklist = []
     for id in sorted(linkid.items(), key=lambda kv:(kv[1], kv[0])):
         if id[0] in taglinks:
             link_id = id[0]
@@ -79,6 +79,6 @@ def links(thetag):
             link_colr = f"#11f"
             link_count = linkid[id[0]][2] # Link {i} clicks"
 
-            taglist.append([tag_desc,tag_url,tag_size,tag_colr,tag_count])
+            linklist.append([link_id,link_desc,link_url,link_size,link_colr,link_count])
 
     return linklist
