@@ -21,4 +21,4 @@ def incr_clicks(linkid):
         current_clicks += 1
         sql = f"UPDATE menu_link SET clicks={current_clicks} WHERE link_id={linkid}"
         cursor = db.execute(sql)
-    return
+    return current_clicks

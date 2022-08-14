@@ -64,5 +64,5 @@ def logout():
 
 @app.route('/linkcount/<int:link_id>')
 def linkcount(link_id):
-    link.incr_clicks(link_id)
-    return
+    clicks = link.incr_clicks(link_id)
+    return clicks
