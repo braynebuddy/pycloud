@@ -12,6 +12,17 @@
 {% block content %}
 <div id="content">
   <ul class="tagcloud">
+    {% for tag in tag_list: %}
+    <li><a href="{{ url_for('links', tagid=tag[1]) }}" class="tag" style="font-size:{{ tag[2] }}%; color: {{ tag[3] }}">{{ tag[0] }}</a> <span class="count">({{ tag[4] }})</span></li>
+	{% endfor %}
+  </ul>
+</div>
+{% endblock %}
+
+
+{% block contentxx %}
+<div id="content">
+  <ul class="tagcloud">
     <li><a href="viewcat.php?category=29" class="tag" style="font-size:90%; color: #99f"></a> <span class="count">(1)</span></li>
     <li><a href="viewcat.php?category=34" class="tag" style="font-size:160%; color: #44f">APC Vendors</a> <span class="count">(39)</span></li> 
     <li><a href="viewcat.php?category=35" class="tag" style="font-size:182%; color: #22f">Academics</a> <span class="count">(128)</span></li> 
