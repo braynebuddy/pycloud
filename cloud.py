@@ -37,7 +37,7 @@ def tags():
     for id in sorted(tagid.items(), key=lambda kv:(kv[1], kv[0])):
         if id[0] in linkcount:
             tag_desc = tagid[id[0]] #f"Tag {i} Description"
-            tag_url = f"{id[0]}" # Tag ID
+            tag_url = id[1] # Tag ID
             tag_colr = f"#11f"
             tag_count = linkcount[id[0]] #linkid[i][2] #f"{4*i}"
             tag_size = int(min_size + (math.log10(linkcount[id[0]]) - min_qty) * size_step) #f"{100+2*id[0]}"
