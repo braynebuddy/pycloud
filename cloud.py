@@ -84,7 +84,9 @@ def links(thetag):
 
     return linklist
 
-def toptags():
+def toptags(numtags):
+    if numtags < 1:
+        numtags = 9999
     tagid = tag.get_ids()
     linkid = link.get_ids()
 
@@ -92,8 +94,8 @@ def toptags():
 
     max_count = 0
     min_count = 0
-    max_size = 250
-    min_size = 90
+    max_size = 220
+    min_size = 100
 
     linkcount = {}
     for tl in taglink:
@@ -102,7 +104,7 @@ def toptags():
         else:
             linkcount[taglink[tl][0]] = linkid[taglink[tl][1]][2]
 
-    linkcount = dict(sorted(linkcount.items(), key = itemgetter(1), reverse = True)[:25])
+    linkcount = dict(sorted(linkcount.items(), key = itemgetter(1), reverse = True)[:numtags])
     for t in linkcount:
         if linkcount[t] > max_count:
             max_count = linkcount[t]

@@ -18,7 +18,7 @@ Session(app)
 def index():
     if session.get("name"):
         name = session.get("name")
-        return render_template('home.html', page_title='PyCloud Menu', page_heading='The PyCloud', username=name, tag_list=cloud.toptags())
+        return render_template('home.html', page_title='PyCloud Menu', page_heading='The PyCloud', username=name, tag_list=cloud.toptags(25))
     else:
         return redirect("/login")
 
