@@ -12,7 +12,7 @@ def get_ids():
     return t
 
 def get_name(tagid):
-    tagname = "None"
+    tagname = "All"
     with sql_data.create_connection('pycloud.db') as db:
         sql = "SELECT tag_id, name FROM menu_tag"
         cursor = db.execute(sql)
