@@ -102,7 +102,7 @@ def toplinks(numlinks):
     min_size = 100
 
     for lk in linkid:
-        this_count = lk[2]
+        this_count = linkid[lk][2]
         if this_count > max_count:
             max_count = this_count
         if min_count == 0 or this_count < min_count:
