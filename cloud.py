@@ -104,10 +104,10 @@ def toptags():
 
     linkcount = dict(sorted(linkcount.items(), key = itemgetter(1), reverse = True)[:25])
     for t in linkcount:
-        if t[1] > max_count:
-            max_count = t[1]
-        if t[1] < min_count or min_count == 0:
-            min_count = t[1]
+        if linkcount[t] > max_count:
+            max_count = linkcount[t]
+        if linkcount[t] < min_count or min_count == 0:
+            min_count = linkcount[t]
     
     max_qty = math.log10(max_count)
     min_qty = math.log10(min_count)
