@@ -2,7 +2,7 @@
 
 {% block navigation %}
 <ul id="navlist">
-  <li><a href="{{ url_for('index') }}">Cloud</a></li>
+  <li><a href="{{ url_for('index') }}">Home</a></li>
   <li><a href="{{ url_for('links', tagid=0) }}" id="current">Links</a></li>
   <li id="active"><a href="{{ url_for('tags') }}">Tags</a></li>
   <li><a href="{{ url_for('logout') }}">Logout</a></li>
@@ -11,7 +11,7 @@
 
 {% block content %}
 <div id="content">
-  <h1 class="tagcloud">{{ tag_name }}</h1>
+  <h1 class="tagcloud">Tag: {{ tag_name }}</h1>
   <ul class="tagcloud">
     {% for link in link_list: %}
     <li><a href="{{ link[2] }}" target="_blank" class="tag" style="font-size:{{ link[3] }}%; color: {{ link[4] }}" onclick=linkCount({{ link[0] }})>{{ link[1] }}</a> <span class="count">({{ link[5] }})</span></li> 
