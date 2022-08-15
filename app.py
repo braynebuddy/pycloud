@@ -18,7 +18,7 @@ Session(app)
 def index():
     if session.get("name"):
         name = session.get("name")
-        return render_template('home.html', page_title='PyCloud Menu', page_heading='The PyCloud', username=name, tag_list=cloud.toptags(25))
+        return render_template('home.html', page_title='PyCloud Menu', page_heading='The PyCloud', username=name, tag_list=cloud.tags(25))
     else:
         return redirect("/login")
 
@@ -47,7 +47,7 @@ def add(n1, n2):
 
 @app.route('/tags')
 def tags():
-    return render_template('tags.html', page_title='PyCloud Menu', page_heading='PyCloud', tag_list=cloud.tags())
+    return render_template('tags.html', page_title='PyCloud Menu', page_heading='PyCloud', tag_list=cloud.tags(-1))
 
 @app.route('/links/<int:tagid>')
 def links(tagid):

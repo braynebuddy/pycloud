@@ -7,7 +7,7 @@ import link
 
 # Functions for generating word-cloud contents
 
-def tags():
+def oldtags():
     tagid = tag.get_ids()
     linkid = link.get_ids()
 
@@ -84,7 +84,7 @@ def links(thetag):
 
     return linklist
 
-def toptags(numtags):
+def tags(numtags):
     if numtags < 1:
         numtags = 9999
     tagid = tag.get_ids()
@@ -126,6 +126,4 @@ def toptags(numtags):
             tag_size = int(min_size + (math.log10(linkcount[id[0]]) - min_qty) * size_step) #f"{100+2*id[0]}"
             taglist.append([tag_desc,tag_url,tag_size,tag_colr,tag_count])
 
-    #top_tags = sorted(taglist, key=lambda v:v[4], reverse=True)[0:25]
-    #return sorted(top_tags, key=lambda v:v[0])
     return taglist

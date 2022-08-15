@@ -11,6 +11,14 @@
 
 {% block content %}
 <div id="content">
+  <h1 class="tagcloud">Top Links</h1>
+  <ul class="tagcloud">
+    {% for link in link_list: %}
+    <li><a href="{{ link[2] }}" target="_blank" class="tag" style="font-size:{{ link[3] }}%; color: {{ link[4] }}" onclick=linkCount({{ link[0] }})>{{ link[1] }}</a> <span class="count">({{ link[5] }})</span></li> 
+	{% endfor %}
+  </ul>
+
+  <h1 class="tagcloud">Top Tags</h1>
   <ul class="tagcloud">
     {% for tag in tag_list: %}
     <li><a href="{{ url_for('links', tagid=tag[1]) }}" class="tag" style="font-size:{{ tag[2] }}%; color: {{ tag[3] }}">{{ tag[0] }}</a> <span class="count">({{ tag[4] }})</span></li>
