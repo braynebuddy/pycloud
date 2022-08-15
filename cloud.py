@@ -122,5 +122,5 @@ def toptags():
             taglist.append([tag_desc,tag_url,tag_size,tag_colr,tag_count])
             numtags += 1
 
-    return sorted(taglist, key=lambda v:v[3], reverse=True)[0:25]
+    return sorted(taglist, key=lambda v:v[0][3], reverse=True)[0:25]
 
