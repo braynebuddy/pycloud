@@ -113,7 +113,7 @@ def toptags():
     taglist = []
     numtags = 0
     for id in sorted(tagid.items(), key=lambda kv:kv[1].casefold()):
-        if id[0] in linkcount and numtags < 26:
+        if id[0] in linkcount and numtags < 99:
             tag_desc = tagid[id[0]] #f"Tag {i} Description"
             tag_url = id[0] # Tag ID
             tag_colr = f"#11f"
@@ -122,5 +122,5 @@ def toptags():
             taglist.append([tag_desc,tag_url,tag_size,tag_colr,tag_count])
             numtags += 1
 
-    return taglist
+    return taglist[0:24]
 
