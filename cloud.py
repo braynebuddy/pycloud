@@ -121,6 +121,7 @@ def toptags():
             tag_size = int(min_size + (math.log10(linkcount[id[0]]) - min_qty) * size_step) #f"{100+2*id[0]}"
             taglist.append([tag_desc,tag_url,tag_size,tag_colr,tag_count])
             numtags += 1
+    top_tags = sorted(taglist, key=lambda v:v[4], reverse=True)[0:25]
 
-    return sorted(taglist, key=lambda v:v[0][3], reverse=True)[0:25]
+    return sorted(top_tags, key=lambda v:v[0])
 
