@@ -16,7 +16,7 @@ def links(thetag):
     max_count = 0
     min_count = 0
     max_size = 250
-    min_size = 90
+    min_size = 100
 
     for tl in taglinks:
         this_count = linkid[tl][2]
@@ -54,7 +54,7 @@ def tags(numtags):
 
     max_count = 0
     min_count = 0
-    max_size = 220
+    max_size = 250
     min_size = 100
 
     linkcount = {}
@@ -98,7 +98,7 @@ def toplinks(numlinks):
 
     max_count = 0
     min_count = 0
-    max_size = 220
+    max_size = 250
     min_size = 100
 
     for lk in linkid:
