@@ -115,14 +115,13 @@ def toplinks(numlinks):
 
     linklist = []
     for id in sorted(linkid.items(), key=lambda v:v[1][0].casefold()):
-        if id[0] in taglinks:
-            link_id = id[0]
-            link_desc = linkid[id[0]][0] # "Link {i} Description"
-            link_url = linkid[id[0]][1] # Link {i} URL"
-            link_size = int(min_size + (math.log10(linkid[id[0]][2]) - min_qty) * size_step) #f"{100+2*id[0]}"
-            link_colr = f"#11f"
-            link_count = linkid[id[0]][2] # Link {i} clicks"
+        link_id = id[0]
+        link_desc = linkid[id[0]][0] # "Link {i} Description"
+        link_url = linkid[id[0]][1] # Link {i} URL"
+        link_size = int(min_size + (math.log10(linkid[id[0]][2]) - min_qty) * size_step) #f"{100+2*id[0]}"
+        link_colr = f"#11f"
+        link_count = linkid[id[0]][2] # Link {i} clicks"
 
-            linklist.append([link_id,link_desc,link_url,link_size,link_colr,link_count])
+        linklist.append([link_id,link_desc,link_url,link_size,link_colr,link_count])
 
     return linklist
