@@ -67,3 +67,5 @@ def create_app(testing: bool = True):
     def linkcount(link_id):
         clicks = link.incr_clicks(link_id)
         return redirect(request.referrer)
+
+    return app
