@@ -223,7 +223,7 @@ ul.tagcloud
 ul.tagcloud li 
 {
 	display: inline;
-	line-height: 2em;
+	line-height: 2.5em;
 	white-space: nowrap;
 }
 
