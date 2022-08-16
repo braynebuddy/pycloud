@@ -2,5 +2,4 @@
 pwd
 cd ~/pycloud/pycloud
 export FLASH_APP=app
-export FLASK_ENV=development
 flask run -p 8080
