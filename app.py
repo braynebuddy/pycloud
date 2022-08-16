@@ -25,14 +25,14 @@ def create_app(testing: bool = True):
 
     @app.route('/login')
     def login():
-        return render_template('login.html', page_title='PyLynx Login', page_heading='PyLynx Menu')
+        return render_template('login.html', page_title='PyLynx Login', page_heading='The PyLynx Menu')
 
     @app.route('/dologin', methods=['POST','GET'])
     def dologin():
         if request.method == "POST":
             email = request.form.get("email")
             passwd = request.form.get("passwd")
-            db = sql_data.create_connection('pycloud/pycloud.db')
+            db = sql_data.create_connection()
             if db:
                 sql = "SELECT email, passwd, name FROM menu_user"
                 cursor = db.execute(sql)
@@ -48,15 +48,15 @@ def create_app(testing: bool = True):
 
     @app.route('/tags')
     def tags():
-        return render_template('tags.html', page_title='PyLynx Menu', page_heading='PyLynx Menu', tag_list=cloud.tags(-1))
+        return render_template('tags.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', tag_list=cloud.tags(-1))
 
     @app.route('/links/<int:tagid>')
     def links(tagid):
-        return render_template('links.html', page_title='PyLynx Menu', page_heading='PyLynx Menu', tag_name=tag.get_name(tagid), link_list=cloud.links(tagid))
+        return render_template('links.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', tag_name=tag.get_name(tagid), link_list=cloud.links(tagid))
 
     @app.route('/alllinks')
     def alllinks():
-        return render_template('links.html', page_title='PyLynx Menu', page_heading='PyLynx Menu', tag_name="All Links", link_list=cloud.links(0))
+        return render_template('links.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', tag_name="All Links", link_list=cloud.links(0))
 
     @app.route('/logout')
     def logout():

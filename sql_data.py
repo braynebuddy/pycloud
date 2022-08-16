@@ -2,7 +2,8 @@ import sqlite3
 from sqlite3 import Error
 
 # pycloud database access
-def create_connection(fn):
+def create_connection():
+    fn = '/home/ubuntu/pycloud/pycloud/pycloud.db'
     conn = None
     try:
         conn = sqlite3.connect(fn)
@@ -13,7 +14,7 @@ def create_connection(fn):
 
 def get_taglinks():
     t = {}
-    with create_connection('pycloud/pycloud.db') as db:
+    with create_connection() as db:
         sql = "SELECT taglink_id, tag_id, link_id FROM taglink"
         cursor = db.execute(sql)
         for row in cursor:

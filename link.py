@@ -4,7 +4,7 @@ from pycloud import sql_data
 
 def get_ids():
     l = {}
-    with sql_data.create_connection('pycloud.db') as db:
+    with sql_data.create_connection() as db:
         sql = "SELECT link_id, name, url, clicks FROM menu_link"
         cursor = db.execute(sql)
         for row in cursor:
@@ -13,7 +13,7 @@ def get_ids():
 
 def incr_clicks(linkid):
     current_clicks = 0
-    with sql_data.create_connection('pycloud.db') as db:
+    with sql_data.create_connection() as db:
         sql = f"SELECT clicks FROM menu_link WHERE link_id={linkid}"
         cursor = db.execute(sql)
         for row in cursor:

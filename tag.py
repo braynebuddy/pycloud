@@ -4,7 +4,7 @@ from pycloud import sql_data
 
 def get_ids():
     t = {}
-    with sql_data.create_connection('pycloud.db') as db:
+    with sql_data.create_connection() as db:
         sql = "SELECT tag_id, name FROM menu_tag"
         cursor = db.execute(sql)
         for row in cursor:
@@ -13,7 +13,7 @@ def get_ids():
 
 def get_name(tagid):
     tagname = "All"
-    with sql_data.create_connection('pycloud.db') as db:
+    with sql_data.create_connection() as db:
         sql = "SELECT tag_id, name FROM menu_tag"
         cursor = db.execute(sql)
         for row in cursor:
@@ -23,7 +23,7 @@ def get_name(tagid):
 
 def get_links(tagid):
     linklist = []
-    with sql_data.create_connection('pycloud.db') as db:
+    with sql_data.create_connection() as db:
         sql = "SELECT taglink_id, tag_id, link_id FROM taglink"
         cursor = db.execute(sql)
         for row in cursor:
