@@ -15,16 +15,7 @@
   <ul class="tagcloud">
     {% for link in link_list: %}
     <li><a href="{{ link[2] }}" target="_blank" class="tag" style="font-size:{{ link[3] }}%; color: {{ link[4] }}" onclick=linkCount({{ link[0] }})>{{ link[1] }}</a> <span class="count">({{ link[5] }})</span></li> 
-	{% endfor %}
-  </ul>
-</div>
-{% endblock %}
-
-
-{% block contentxx %}
-<div id="content">
-  <ul class="tagcloud">
-    <li><a href="viewcat.php?category=29" class="tag" style="font-size:190%; color: #22f">TAGS GO HERE</a> <span class="count">(1)</span></li>
+	  {% endfor %}
   </ul>
 </div>
 {% endblock %}
