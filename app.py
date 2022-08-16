@@ -3,10 +3,10 @@ from flask import render_template
 from flask import redirect, request, session
 from flask_session import Session
 
-import pycloud.sql_data
-import pycloud.tag
-import pycloud.link
-import pycloud.cloud
+from pycloud import sql_data
+from pycloud import tag
+from pycloud import link
+from pycloud import cloud
 
 def create_app(testing: bool = True):
     app = Flask(__name__)
@@ -19,13 +19,13 @@ def create_app(testing: bool = True):
     def index():
         if session.get("name"):
             name = session.get("name")
-            return render_template('home.html', page_title='PyLynx Menu', page_heading='The PyLynx', username=name, tag_list=pycloud.cloud.tags(25), link_list=pycloud.cloud.toplinks(25))
+            return render_template('home.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', username=name, tag_list=cloud.tags(25), link_list=cloud.toplinks(25))
         else:
             return redirect("/login")
 
     @app.route('/login')
     def login():
-        return render_template('login.html', page_title='PyLynx Login', page_heading='PyLynx')
+        return render_template('login.html', page_title='PyLynx Login', page_heading='PyLynx Menu')
 
     @app.route('/dologin', methods=['POST','GET'])
     def dologin():
@@ -48,15 +48,15 @@ def create_app(testing: bool = True):
 
     @app.route('/tags')
     def tags():
-        return render_template('tags.html', page_title='PyLynx Menu', page_heading='PyLynx', tag_list=pycloud.cloud.tags(-1))
+        return render_template('tags.html', page_title='PyLynx Menu', page_heading='PyLynx Menu', tag_list=cloud.tags(-1))
 
     @app.route('/links/<int:tagid>')
     def links(tagid):
-        return render_template('links.html', page_title='PyLynx Menu', page_heading='PyLynx', tag_name=pycloud.tag.get_name(tagid), link_list=pycloud.cloud.links(tagid))
+        return render_template('links.html', page_title='PyLynx Menu', page_heading='PyLynx Menu', tag_name=tag.get_name(tagid), link_list=cloud.links(tagid))
 
     @app.route('/alllinks')
     def alllinks():
-        return render_template('links.html', page_title='PyLynx Menu', page_heading='PyLynx', tag_name="All Links", link_list=pycloud.cloud.links(0))
+        return render_template('links.html', page_title='PyLynx Menu', page_heading='PyLynx Menu', tag_name="All Links", link_list=cloud.links(0))
 
     @app.route('/logout')
     def logout():
@@ -65,7 +65,7 @@ def create_app(testing: bool = True):
 
     @app.route('/linkcount/<int:link_id>')
     def linkcount(link_id):
-        clicks = pycloud.link.incr_clicks(link_id)
+        clicks = link.incr_clicks(link_id)
         return redirect(request.referrer)
 
     return app
