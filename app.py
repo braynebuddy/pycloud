@@ -48,15 +48,27 @@ def create_app(testing: bool = True):
 
     @app.route('/tags')
     def tags():
-        return render_template('tags.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', tag_list=cloud.tags(-1))
+        if session.get("name"):
+            name = session.get("name")
+            return render_template('tags.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', username=name, tag_list=cloud.tags(-1))
+        else:
+            return redirect("/login")
 
     @app.route('/links/<int:tagid>')
     def links(tagid):
-        return render_template('links.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', tag_name=tag.get_name(tagid), link_list=cloud.links(tagid))
+        if session.get("name"):
+            name = session.get("name")
+            return render_template('links.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', username=name, tag_name=tag.get_name(tagid), link_list=cloud.links(tagid))
+        else:
+            return redirect("/login")
 
     @app.route('/alllinks')
     def alllinks():
-        return render_template('links.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', tag_name="All Links", link_list=cloud.links(0))
+        if session.get("name"):
+            name = session.get("name")
+            return render_template('links.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', username=name, tag_name="All Links", link_list=cloud.links(0))
+        else:
+            return redirect("/login")
 
     @app.route('/logout')
     def logout():
