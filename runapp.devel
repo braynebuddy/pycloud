@@ -1,6 +1,0 @@
-#!/usr/bin/bash
-pwd
-cd ~/pycloud/pycloud
-export FLASK_APP=app:create_app
-export FLASK_ENV=development
-flask run -p 8080

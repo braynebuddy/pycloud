@@ -1,5 +1,0 @@
-#!/usr/bin/bash
-pwd
-cd ~/pycloud/pycloud
-export FLASH_APP=app
-flask run -p 8080
