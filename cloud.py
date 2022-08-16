@@ -1,9 +1,9 @@
 import math
 from operator import itemgetter
 
-import sql_data
-import tag
-import link
+import pycloud.sql_data
+import pycloud.tag
+import pycloud.link
 
 # Functions for generating word-cloud contents
 

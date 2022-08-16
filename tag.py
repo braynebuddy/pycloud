@@ -1,4 +1,4 @@
-import sql_data
+import pycloud.sql_data
 
 # Functions for managing tags
 

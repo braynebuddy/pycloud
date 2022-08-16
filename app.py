@@ -3,10 +3,10 @@ from flask import render_template
 from flask import redirect, request, session
 from flask_session import Session
 
-import sql_data
-import tag
-import link
-import cloud
+import pycloud.sql_data
+import pycloud.tag
+import pycloud.link
+import pycloud.cloud
 
 def create_app(testing: bool = True):
     app = Flask(__name__)
