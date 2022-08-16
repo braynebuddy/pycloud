@@ -1,4 +1,4 @@
-import pycloud.sql_data
+from pycloud import sql_data
 
 # Functions for working with links (i.e., URLs)
 

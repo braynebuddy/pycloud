@@ -8,10 +8,9 @@ import pycloud.link
 # Functions for generating word-cloud contents
 
 def links(thetag):
-    tagid = tag.get_ids()   # get all the tag information
-    linkid = link.get_ids() # get all the link information
-
-    taglinks = tag.get_links(thetag) # get a list of links that reference this tag
+    tagid    = pycloud.tag.get_ids()   # get all the tag information
+    linkid   = pycloud.link.get_ids() # get all the link information
+    taglinks = pycloud.tag.get_links(thetag) # get a list of links that reference this tag
 
     max_count = 0
     min_count = 0
@@ -45,12 +44,12 @@ def links(thetag):
     return linklist
 
 def tags(numtags):
+    tagid   = pycloud.tag.get_ids()
+    linkid  = pycloud.link.get_ids()
+    taglink = pycloud.sql_data.get_taglinks()
+
     if numtags < 1:
         numtags = 9999
-    tagid = tag.get_ids()
-    linkid = link.get_ids()
-
-    taglink = sql_data.get_taglinks()
 
     max_count = 0
     min_count = 0
@@ -89,12 +88,13 @@ def tags(numtags):
     return taglist
 
 def toplinks(numlinks):
-    if numlinks < 1:
-        numlinks = 99999
-    tagid = tag.get_ids()   # get all the tag information
-    linkid = link.get_ids() # get all the link information
+    tagid  = pycloud.tag.get_ids()   # get all the tag information
+    linkid = pycloud.link.get_ids() # get all the link information
 
     linkid = dict(sorted(linkid.items(), key = lambda v:v[1][2], reverse = True)[:numlinks]) # get the top numlinks
+
+    if numlinks < 1:
+        numlinks = 99999
 
     max_count = 0
     min_count = 0
