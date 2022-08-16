@@ -32,7 +32,7 @@ def create_app(testing: bool = True):
         if request.method == "POST":
             email = request.form.get("email")
             passwd = request.form.get("passwd")
-            db = sql_data.create_connection('pycloud.db')
+            db = sql_data.create_connection('pycloud/pycloud.db')
             if db:
                 sql = "SELECT email, passwd, name FROM menu_user"
                 cursor = db.execute(sql)

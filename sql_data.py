@@ -13,7 +13,7 @@ def create_connection(fn):
 
 def get_taglinks():
     t = {}
-    with create_connection('pycloud.db') as db:
+    with create_connection('pycloud/pycloud.db') as db:
         sql = "SELECT taglink_id, tag_id, link_id FROM taglink"
         cursor = db.execute(sql)
         for row in cursor:
