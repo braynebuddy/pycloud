@@ -14,15 +14,26 @@ def create_app(testing: bool = True):
     app.config["SESSION_TYPE"] = "filesystem"
     Session(app)
 
+    # -------------------
+    # Main Menu Page
+    # -------------------
     @app.route('/')
     @app.route('/index')
     def index():
         if session.get("name"):
             name = session.get("name")
-            return render_template('home.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', username=name, tag_list=cloud.tags(25), link_list=cloud.toplinks(25))
+            return render_template('home.html', 
+                            page_title='PyLynx Menu', 
+                            page_heading='The PyLynx Menu', 
+                            username=name, 
+                            tag_list=cloud.tags(25), 
+                            link_list=cloud.toplinks(25))
         else:
             return redirect("/login")
 
+    # -------------------
+    # Login and Logout
+    # -------------------
     @app.route('/login')
     def login():
         return render_template('login.html', page_title='PyLynx Login', page_heading='The PyLynx Menu')
@@ -42,10 +53,14 @@ def create_app(testing: bool = True):
                 db.close()
         return redirect("/index")
 
-    @app.route('/add/<int:n1>/<int:n2>/')
-    def add(n1, n2):
-        return '<h1>{}</h1>'.format(n1 + n2)
+    @app.route('/logout')
+    def logout():
+        session["name"] = None
+        return redirect("/login")
 
+    # -------------------
+    # Cloud of tags
+    # -------------------
     @app.route('/tags')
     def tags():
         if session.get("name"):
@@ -54,6 +69,9 @@ def create_app(testing: bool = True):
         else:
             return redirect("/login")
 
+    # ----------------------
+    # Cloud of URLs (links)
+    # ----------------------
     @app.route('/links/<int:tagid>')
     def links(tagid):
         if session.get("name"):
@@ -70,11 +88,9 @@ def create_app(testing: bool = True):
         else:
             return redirect("/login")
 
-    @app.route('/logout')
-    def logout():
-        session["name"] = None
-        return redirect("/login")
-
+    # ----------------------
+    # Server-side Helpers
+    # ----------------------
     @app.route('/linkcount/<int:link_id>')
     def linkcount(link_id):
         clicks = link.incr_clicks(link_id)
