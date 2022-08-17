@@ -1,6 +1,12 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "base.html" %}
 
+{% block navigation %}
+<ul id="navlist">
+  <li id="active"><a href="{{ url_for('login')  }}" id="current">Login</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
 <div id=login>
   <form method="post" action="{{ url_for('dologin') }}" method="POST">
     <p>User ID:<br />
@@ -15,5 +21,4 @@
     </p>
   </form>
 </div>
-
 {% endblock %}
