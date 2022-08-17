@@ -21,22 +21,22 @@ def create_app(testing: bool = True):
     @app.route('/index')
     def index():
         if session.get("name"):
-            name = session.get("name")
             return render_template('home.html', 
-                            page_title='PyLynx Menu', 
-                            page_heading='PyLynx - A Link Manager', 
-                            username=name, 
                             tag_list=cloud.tags(25), 
                             link_list=cloud.toplinks(25))
         else:
             return redirect("/login")
+    #        name = session.get("name")
+    #                        username=name, 
 
     # -------------------
     # Login and Logout
     # -------------------
     @app.route('/login')
     def login():
-        return render_template('login.html', page_title='PyLynx Login', page_heading='The PyLynx Menu')
+        return render_template('login.html', 
+                            page_title='PyLynx Login', 
+                            page_heading='The PyLynx Menu')
 
     @app.route('/dologin', methods=['POST','GET'])
     def dologin():
@@ -65,7 +65,11 @@ def create_app(testing: bool = True):
     def tags():
         if session.get("name"):
             name = session.get("name")
-            return render_template('tags.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', username=name, tag_list=cloud.tags(-1))
+            return render_template('tags.html', 
+                                page_title='PyLynx Menu', 
+                                page_heading='The PyLynx Menu', 
+                                username=name, 
+                                tag_list=cloud.tags(-1))
         else:
             return redirect("/login")
 
@@ -76,7 +80,12 @@ def create_app(testing: bool = True):
     def links(tagid):
         if session.get("name"):
             name = session.get("name")
-            return render_template('links.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', username=name, tag_name=tag.get_name(tagid), link_list=cloud.links(tagid))
+            return render_template('links.html', 
+                                page_title='PyLynx Menu', 
+                                page_heading='The PyLynx Menu', 
+                                username=name, 
+                                tag_name=tag.get_name(tagid), 
+                                link_list=cloud.links(tagid))
         else:
             return redirect("/login")
 
@@ -84,7 +93,12 @@ def create_app(testing: bool = True):
     def alllinks():
         if session.get("name"):
             name = session.get("name")
-            return render_template('links.html', page_title='PyLynx Menu', page_heading='The PyLynx Menu', username=name, tag_name="All Links", link_list=cloud.links(0))
+            return render_template('links.html', 
+                                page_title='PyLynx Menu', 
+                                page_heading='The PyLynx Menu', 
+                                username=name, 
+                                tag_name="All Links", 
+                                link_list=cloud.links(0))
         else:
             return redirect("/login")
 
