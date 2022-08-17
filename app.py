@@ -24,7 +24,7 @@ def create_app(testing: bool = True):
             name = session.get("name")
             return render_template('home.html', 
                             page_title='PyLynx Menu', 
-                            page_heading='The PyLynx Menu', 
+                            page_heading='PyLynx - A Link Manager', 
                             username=name, 
                             tag_list=cloud.tags(25), 
                             link_list=cloud.toplinks(25))
