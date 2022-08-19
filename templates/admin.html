@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+<ul id="navlist">
+  <li id="active"><a href="{{ url_for('index') }}" id="current">Home</a></li>
+  <li><a href="{{ url_for('links', tagid=0) }}">Links</a></li>
+  <li><a href="{{ url_for('tags') }}">Tags</a></li>
+  <li><a href="{{ url_for('admin') }}">Admin</a></li>
+  <li><a href="{{ url_for('logout') }}">Logout</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+  <h1 class="tagcloud">Link Listing...</h1>
+
+  <h1 class="tagcloud">Tag Listing</h1>
+</div>
+{% endblock %}

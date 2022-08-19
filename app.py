@@ -86,6 +86,14 @@ def create_app(testing: bool = True):
         else:
             return redirect("/login")
 
+
+    @app.route('/admin')
+    def admin():
+        if session.get("name"):
+            return render_template('admin.html')
+        else:
+            return redirect("/login")
+
     # ----------------------
     # Server-side Helpers
     # ----------------------
