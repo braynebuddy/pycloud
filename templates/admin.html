@@ -12,23 +12,25 @@
 
 {% block content %}
 <div id="content">
-  <h1 class="tagcloud">Link Listing...</h1>
+  <h1 class="tagcloud">PyLynx Administration</h1>
 
   <div id="listcol">
-    <form method="post" action="{{ url_for('add_link') }}" method="POST">
-      <p>User ID:<br />
-      <input type="text" name="email" maxlength="255" value="" />
-      </p>
-      <p>
-      Password:<br />
-      <input type="password" name="passwd" maxlength="50" />
-      </p>
-      <p>
-      <input type="submit" class="submit" name="action" value="Login" />
-      </p>
+    <form action="{{ url_for('add_link') }}" method="POST">
+      <ul><li><h3>Links</h3></li></ul>
+      <p>Add New Link:<br />
+      <input type="text" name="name" maxlength="255" value="" /></p>
+      <p> URL: <input type="text" name="passwd" maxlength="255" /></p>
+      <p><input type="submit" class="submit" name="action" value="Add Link" /></p>
     </form>
   </div>
   
-  <h1 class="tagcloud">Tag Listing</h1>
-</div>
+  <div id="listcol">
+    <form action="{{ url_for('add_tag') }}" method="POST">
+      <ul><li><h3>Tags</h3></li></ul>
+      <p>Add New Tag:<br />
+        <input type="text" name="name" maxlength="255" value="" /></p>
+        <p> URL: <input type="text" name="passwd" maxlength="255" /></p>
+        <p><input type="submit" class="submit" name="action" value="Add Link" /></p>
+      </form>
+   </div>
 {% endblock %}

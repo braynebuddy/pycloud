@@ -102,4 +102,34 @@ def create_app(testing: bool = True):
         clicks = link.incr_clicks(link_id)
         return redirect(request.referrer)
 
+    @app.route('/add_link', methods=['POST','GET'])
+    def add_link():
+        if request.method == "POST":
+            link_name = request.form.get("name")
+            link_url = request.form.get("url")
+            link_clicks = 0
+            #db = sql_data.create_connection()
+            #if db:
+            #    sql = "SELECT email, passwd, name FROM menu_user"
+            #    cursor = db.execute(sql)
+            #    for row in cursor:
+            #        if email==row[0] and passwd==row[1]:
+            #            session["name"] = row[2]
+            #    db.close()
+        return redirect("/admin")
+
+    @app.route('/add_tag', methods=['POST','GET'])
+    def add_link():
+        if request.method == "POST":
+            tag_name = request.form.get("name")
+            #db = sql_data.create_connection()
+            #if db:
+            #    sql = "SELECT email, passwd, name FROM menu_user"
+            #    cursor = db.execute(sql)
+            #    for row in cursor:
+            #        if email==row[0] and passwd==row[1]:
+            #            session["name"] = row[2]
+            #    db.close()
+        return redirect("/admin")
+
     return app
