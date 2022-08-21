@@ -14,6 +14,21 @@
 <div id="content">
   <h1 class="tagcloud">Link Listing...</h1>
 
+  <div id="listcol">
+    <form method="post" action="{{ url_for('add_link') }}" method="POST">
+      <p>User ID:<br />
+      <input type="text" name="email" maxlength="255" value="" />
+      </p>
+      <p>
+      Password:<br />
+      <input type="password" name="passwd" maxlength="50" />
+      </p>
+      <p>
+      <input type="submit" class="submit" name="action" value="Login" />
+      </p>
+    </form>
+  </div>
+  
   <h1 class="tagcloud">Tag Listing</h1>
 </div>
 {% endblock %}
