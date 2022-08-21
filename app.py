@@ -119,7 +119,7 @@ def create_app(testing: bool = True):
         return redirect("/admin")
 
     @app.route('/add_tag', methods=['POST','GET'])
-    def add_link():
+    def add_tag():
         if request.method == "POST":
             tag_name = request.form.get("name")
             #db = sql_data.create_connection()
