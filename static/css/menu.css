@@ -163,7 +163,10 @@ body {
     padding: 2px;
  }
 
-#listcol p  { margin: 0 0 1em 0; }
+#listcol p  { 
+    margin: 0 0 1em 0;
+    text-align:left;
+}
 
 #listcol ul
 {

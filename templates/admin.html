@@ -17,7 +17,7 @@
     <form action="{{ url_for('add_link') }}" method="POST">
       <li><h3>Links</h3></li>
       <p>New Link: <input type="text" name="name" maxlength="255" value="" /></p>
-      <p> URL: <input type="text" name="passwd" maxlength="255" /></p>
+      <p> URL: <input type="text" name="url" maxlength="255" /></p>
       <p><input type="submit" class="submit" name="action" value="Add Link" /></p>
     </form>
     </ul>
@@ -30,5 +30,6 @@
         <p><input type="submit" class="submit" name="action" value="Add Tag" /></p>
       </form>
     </ul>
-   </div>
+  </div>
+</div>
 {% endblock %}
