@@ -12,21 +12,23 @@
 
 {% block content %}
 <div id="content">
-
   <div id="listcol">
+    <ul>
     <form action="{{ url_for('add_link') }}" method="POST">
-      <ul><li><h3>Links</h3></li></ul>
+      <li><h3>Links</h3></li>
       <p>New Link: <input type="text" name="name" maxlength="255" value="" /></p>
       <p> URL: <input type="text" name="passwd" maxlength="255" /></p>
       <p><input type="submit" class="submit" name="action" value="Add Link" /></p>
     </form>
+    </ul>
   </div>
-  
   <div id="listcol">
+    <ul>
     <form action="{{ url_for('add_tag') }}" method="POST">
-      <ul><li><h3>Tags</h3></li></ul>
+      <li><h3>Tags</h3></li>
       <p>New Tag: <input type="text" name="name" maxlength="255" value="" /></p>
         <p><input type="submit" class="submit" name="action" value="Add Tag" /></p>
       </form>
+    </ul>
    </div>
 {% endblock %}

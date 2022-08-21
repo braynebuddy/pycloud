@@ -13,6 +13,10 @@ def create_app(testing: bool = True):
     app = Flask(__name__)
     app.config["SESSION_PERMANENT"] = False
     app.config["SESSION_TYPE"] = "filesystem"
+    
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    
     Session(app)
 
     # -------------------
@@ -109,8 +113,8 @@ def create_app(testing: bool = True):
             link_name = request.form.get("name")
             link_url = request.form.get("url")
             link_clicks = 0
-            app.logger.info(f"Link Name is '{link_name}'")
-            app.logger.info(f"Link URL is '{link_url}'")
+            app.logger.error(f"NOT IMPLEMENTED: Link Name is '{link_name}'")
+            app.logger.error(f"NOT IMPLEMENTED: Link URL is '{link_url}'")
             #db = sql_data.create_connection()
             #if db:
             #    sql = "SELECT email, passwd, name FROM menu_user"
@@ -125,7 +129,7 @@ def create_app(testing: bool = True):
     def add_tag():
         if request.method == "POST":
             tag_name = request.form.get("name")
-            app.logger.info(f"Tag Name is '{tag_name}'")
+            app.logger.error(f"NOT IMPLEMENTED: Tag Name is '{tag_name}'")
             #db = sql_data.create_connection()
             #if db:
             #    sql = "SELECT email, passwd, name FROM menu_user"
