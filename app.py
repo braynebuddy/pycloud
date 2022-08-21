@@ -1,3 +1,4 @@
+import logging
 from flask import Flask
 from flask import render_template
 from flask import redirect, request, session
@@ -108,6 +109,8 @@ def create_app(testing: bool = True):
             link_name = request.form.get("name")
             link_url = request.form.get("url")
             link_clicks = 0
+            app.logger.info(f"Link Name is '{link_name}'")
+            app.logger.info(f"Link URL is '{link_url}'")
             #db = sql_data.create_connection()
             #if db:
             #    sql = "SELECT email, passwd, name FROM menu_user"
@@ -122,6 +125,7 @@ def create_app(testing: bool = True):
     def add_tag():
         if request.method == "POST":
             tag_name = request.form.get("name")
+            app.logger.info(f"Tag Name is '{tag_name}'")
             #db = sql_data.create_connection()
             #if db:
             #    sql = "SELECT email, passwd, name FROM menu_user"
