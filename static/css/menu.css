@@ -145,7 +145,7 @@ body {
 
 * html #listcol
 {
-    width: 24.9%;
+    width: 49.9%;
 /*
     width: 29.4%;
     margin-left: -3.5%;
@@ -165,7 +165,7 @@ body {
 
 #listcol p  { 
     margin: 0 0 1em 0;
-    text-align:left;
+    text-align: left;
 }
 
 #listcol ul

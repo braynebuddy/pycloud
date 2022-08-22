@@ -15,9 +15,9 @@
   <ul>
   <form action="{{ url_for('add_link') }}" method="POST">
     <li><h3>Links</h3></li>
-    <p>New Link: <input type="text" name="name" maxlength="255" value="" /></p>
-    <p> URL: <input type="text" name="url" maxlength="255" /></p>
-    <p><input type="submit" class="submit" name="action" value="Add Link" /></p>
+    <p><input type="submit" class="submit" name="action" value="Add Link" />
+       <input type="text" name="name" maxlength="255" value="" /> 
+       URL: <input type="text" name="url" maxlength="255" /></p>
   </form>
   </ul>
 </div>
@@ -26,8 +26,8 @@
   <ul>
   <form action="{{ url_for('add_tag') }}" method="POST">
     <li><h3>Tags</h3></li>
-    <p>New Tag: <input type="text" name="name" maxlength="255" value="" /></p>
-      <p><input type="submit" class="submit" name="action" value="Add Tag" /></p>
+    <p><input type="submit" class="submit" name="action" value="Add Tag" />
+       <input type="text" name="name" maxlength="255" value="" /></p>
     </form>
   </ul>
 </div> 
