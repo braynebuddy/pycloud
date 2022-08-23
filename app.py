@@ -100,8 +100,7 @@ def create_app(testing: bool = True):
         else:
             return redirect("/login")
 
-    @app.route('/link
-    ')
+    @app.route('/link')
     def show_link():
         if session.get("name"):
             return render_template('admin.html', 
