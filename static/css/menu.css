@@ -189,6 +189,10 @@ body {
     clear: both;
 }
 
+#listcol fieldset
+{
+    width: 90%;
+}
 /* anchor styling */
 #listcol ul li a
 {
