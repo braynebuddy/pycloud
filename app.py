@@ -100,6 +100,14 @@ def create_app(testing: bool = True):
         else:
             return redirect("/login")
 
+    @app.route('/link/<int:tagid>')
+    def show_link(id):
+        if session.get("name"):
+            return render_template('admin.html', 
+                                link_list=cloud.links(0))
+        else:
+            return redirect("/login")
+
     # ----------------------
     # Server-side Helpers
     # ----------------------
