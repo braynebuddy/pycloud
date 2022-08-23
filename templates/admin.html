@@ -17,7 +17,17 @@
     <li><h3>Links</h3></li>
     <p><input type="submit" class="submit" name="action" value="Add Link" />
        <input type="text" name="name" maxlength="255" value="" /> 
-       URL: <input type="text" name="url" maxlength="255" /></p>
+       URL: <input type="text" name="url" maxlength="255" width="100%" /></p>
+  </form>
+  <form action ="{{ url_for('show_link') }} method="POST">
+    <fieldset>
+      {% for link in link_list: %}
+      <p><input type="checkbox" name="checked_links" value="{{ link[1] }}" id="{{ link[0] }}" />
+      <label for="{{ link[0] }}">{{ link[1] }}</label></p>
+      {% endfor %}
+      <br>
+      <p><input type="submit" class="submit" name="action" value="Select Links" /></p>
+    </fieldset>
   </form>
   </ul>
 </div>

@@ -89,12 +89,11 @@ def tags(numtags):
 
 def toplinks(numlinks):
     tagid  = tag.get_ids()   # get all the tag information
-    linkid = link.get_ids() # get all the link information
+    linkid = link.get_top(numlinks) # get the top link information
 
-    linkid = dict(sorted(linkid.items(), key = lambda v:v[1][2], reverse = True)[:numlinks]) # get the top numlinks
-
-    if numlinks < 1:
-        numlinks = 99999
+    #if numlinks < 1:
+    #    numlinks = 99999
+    #linkid = dict(sorted(linkid.items(), key = lambda v:v[1][2], reverse = True)[:numlinks]) # get the top numlinks
 
     max_count = 0
     min_count = 0

@@ -95,7 +95,8 @@ def create_app(testing: bool = True):
     @app.route('/admin')
     def admin():
         if session.get("name"):
-            return render_template('admin.html')
+            return render_template('admin.html', 
+                                link_list=cloud.links(0))
         else:
             return redirect("/login")
 
@@ -112,17 +113,7 @@ def create_app(testing: bool = True):
         if request.method == "POST":
             link_name = request.form.get("name")
             link_url = request.form.get("url")
-            link_clicks = 0
-            app.logger.error(f"NOT IMPLEMENTED: Link Name is '{link_name}'")
-            app.logger.error(f"NOT IMPLEMENTED: Link URL is '{link_url}'")
-            #db = sql_data.create_connection()
-            #if db:
-            #    sql = "SELECT email, passwd, name FROM menu_user"
-            #    cursor = db.execute(sql)
-            #    for row in cursor:
-            #        if email==row[0] and passwd==row[1]:
-            #            session["name"] = row[2]
-            #    db.close()
+            link.create(link_name, link_url)
         return redirect("/admin")
 
     @app.route('/add_tag', methods=['POST','GET'])
