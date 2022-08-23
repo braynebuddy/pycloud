@@ -21,12 +21,12 @@
   </form>
   <form action ="{{ url_for('show_link') }} method="POST">
     <fieldset>
-      {% for link in link_list: %}
-      <p><input type="checkbox" name="checked_links" value="{{ link[1] }}" id="{{ link[0] }}" />
-      <label for="{{ link[0] }}">{{ link[1] }}</label></p>
-      {% endfor %}
-      <br>
+      <legend>Links</legend>
       <p><input type="submit" class="submit" name="action" value="Select Links" /></p>
+      {% for link in link_list: %}
+      <input type="checkbox" name="checked_links" value="{{ link[1] }}" id="{{ link[0] }}" />
+      <label for="{{ link[0] }}">{{ link[1] }}</label>
+      {% endfor %}
     </fieldset>
   </form>
   </ul>
