@@ -101,11 +101,19 @@ def create_app(testing: bool = True):
         else:
             return redirect("/login")
 
-    @app.route('/link')
+    @app.route('/link_detail')
     def show_link():
         if session.get("name"):
             return render_template('admin.html', 
                                 link_list=cloud.links(0))
+        else:
+            return redirect("/login")
+
+    @app.route('/tag_detail')
+    def show_tag():
+        if session.get("name"):
+            return render_template('admin.html', 
+                                link_list=cloud.tags(-1))
         else:
             return redirect("/login")
 
@@ -130,14 +138,6 @@ def create_app(testing: bool = True):
         if request.method == "POST":
             tag_name = request.form.get("name")
             app.logger.error(f"NOT IMPLEMENTED: Tag Name is '{tag_name}'")
-            #db = sql_data.create_connection()
-            #if db:
-            #    sql = "SELECT email, passwd, name FROM menu_user"
-            #    cursor = db.execute(sql)
-            #    for row in cursor:
-            #        if email==row[0] and passwd==row[1]:
-            #            session["name"] = row[2]
-            #    db.close()
         return redirect("/admin")
 
     return app
