@@ -25,7 +25,7 @@
       <p><input type="submit" class="submit" name="action" value="Select" /></p>
       <p>Filter Links: <input type="text" class="search-box" placeholder="Filter" /></p>
       {% for link in link_list: %}
-      <p><input class="search-list" type="checkbox" name="checked_links" value="{{ link[1] }}" id="{{ link[0] }}" />
+      <p class="search-list"><input type="checkbox" name="checked_links" value="{{ link[1] }}" id="{{ link[0] }}" />
       <label for="{{ link[0] }}">{{ link[1] }}</label></p>
       {% endfor %}
     </fieldset>
