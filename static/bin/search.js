@@ -7,7 +7,7 @@ jQuery(document).ready(function($){
     $('.tagcloud li').each(function(){
         $(this).attr('search-term', $(this).text().toLowerCase());
     });
-    $('.search-list p').each(function(){
+    $('.search-list').each(function(){
         $(this).attr('search-term', $(this).text().toLowerCase());
     });
       
@@ -20,7 +20,7 @@ jQuery(document).ready(function($){
                 $(this).hide();
             }
         });
-        $('.search-list p').each(function(){
+        $('.search-list').each(function(){
             if ($(this).filter('[search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
                 $(this).show();
             } else {
