@@ -50,8 +50,8 @@
           <p><input type="submit" class="submit" name="action" value="Select" /></p>
           <p>Filter Categories: <input type="text" class="search-box" placeholder="Filter" /></p>
           {% for tag in tag_list: %}
-          <p class="search-list"><input type="checkbox" name="checked_tags" value="{{ tag[1] }}" id="{{ tag[0] }}" />
-          <label for="{{ tag[0] }}">{{ tag[1] }}</label></p>
+          <p class="search-list"><input type="checkbox" name="checked_tags" value="{{ tag[0] }}" id="{{ tag[0] }}" />
+          <label for="{{ tag[1] }}">{{ tag[0] }}</label></p>
           {% endfor %}
         </fieldset>
       </form>
