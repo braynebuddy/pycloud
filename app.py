@@ -86,7 +86,7 @@ def create_app(testing: bool = True):
     def alllinks():
         if session.get("name"):
             return render_template('links.html', 
-                                tag_name="All Links", 
+                                tag_name="", 
                                 link_list=cloud.links(0))
         else:
             return redirect("/login")
