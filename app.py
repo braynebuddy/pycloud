@@ -96,7 +96,7 @@ def create_app(testing: bool = True):
     def admin():
         if session.get("name"):
             return render_template('admin.html', 
-                                link_list=cloud.links(0)
+                                link_list=cloud.links(0),
                                 tag_list=cloud.tags(-1))
         else:
             return redirect("/login")
