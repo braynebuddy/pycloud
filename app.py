@@ -92,6 +92,9 @@ def create_app(testing: bool = True):
             return redirect("/login")
 
 
+    # ----------------------
+    # Database Administration
+    # ----------------------
     @app.route('/admin')
     def admin():
         if session.get("name"):
@@ -101,11 +104,16 @@ def create_app(testing: bool = True):
         else:
             return redirect("/login")
 
-    @app.route('/link_detail')
+    # ----------------------
+    # Details
+    # ----------------------
+    @app.route('/link_detail', methods=['POST','GET'])
     def show_link():
         if session.get("name"):
-            return render_template('admin.html', 
-                                link_list=cloud.links(0))
+            if request.method == "POST":
+                checked_links = request.form.get("checked_links")
+
+            return render_template('link_detail.html', links=checked_links)
         else:
             return redirect("/login")
 
