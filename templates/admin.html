@@ -2,10 +2,10 @@
 
 {% block navigation %}
 <ul id="navlist">
-  <li><a href="{{ url_for('index') }}" id="current">Home</a></li>
+  <li><a href="{{ url_for('index') }}">Home</a></li>
   <li><a href="{{ url_for('links', tagid=0) }}">Links</a></li>
   <li><a href="{{ url_for('tags') }}">Tags</a></li>
-  <li id="active"><a href="{{ url_for('admin') }}">Admin</a></li>
+  <li id="active"><a href="{{ url_for('admin') }}" id="current">Admin</a></li>
   <li><a href="{{ url_for('logout') }}">Logout</a></li>
 </ul>
 {% endblock %}
