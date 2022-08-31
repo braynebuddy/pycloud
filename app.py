@@ -138,10 +138,12 @@ def create_app(testing: bool = True):
         if request.method == "POST":
             link_name = request.form.get("name")
             link_url = request.form.get("url")
+            app.logger.error(f"ADD LINK: Adding: '{link_name}', '{link_url}'")
             link.create(link_name, link_url)
         return redirect("/admin")
 
     @app.route('/add_tag', methods=['POST','GET'])
+    
     def add_tag():
         if request.method == "POST":
             tag_name = request.form.get("name")
