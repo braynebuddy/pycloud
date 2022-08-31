@@ -111,7 +111,7 @@ def create_app(testing: bool = True):
     def show_link():
         if session.get("name"):
             if request.method == "POST":
-                checked_links = request.form.get("checked_links")
+                checked_links = request.form.getlist("checked_links")
 
             return render_template('link_detail.html', links=checked_links)
         else:
