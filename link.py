@@ -15,7 +15,7 @@ def get_id(url):
     link_data = get_ids()
     id = -1
     for link in link_data:
-        if link[2].strip() == url.strip():
+        if link[1].strip() == url.strip():
             id = link[0]
     return id
 
