@@ -13,11 +13,10 @@ def get_ids():
 
 def get_id(url):
     link_data = get_ids()
-    id = -1
     for key, value in link_data.items():
         if value[1].strip() == url.strip():
-            id = key
-    return id
+            return key
+    return -1
 
 def incr_clicks(linkid):
     current_clicks = 0
@@ -51,7 +50,7 @@ def create(name, url):
     if not existing(url):
         # Add the new link to the database
         with sql_data.create_connection() as db:
-            sql = f"INSERT INTO menu_link (name,url,clicks) VALUES ('{link_name}','{url.strip()}',0)"
+            sql = f"INSERT INTO menu_link (name,url,clicks) VALUES ('{link_name}','{url.strip()}',1)"
             cursor = db.execute(sql)
     return
 
