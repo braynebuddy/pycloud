@@ -44,8 +44,12 @@ def existing(url):
 
 def create(name, url):
     # Don't add this link if input is blank or URL already exists
-    if name == "" or url == "" or existing(url):
-        return False
+    if name == "":
+        return "Blank Name"
+    if url == "":
+        return "Blank URL"
+    if existing(url):
+        return f"URL Exists #{get_id(url)}"
 
     # Get rid of non-alphanumerics in name
     link_name = ''.join(filter(str.isalnum, name))
@@ -54,7 +58,7 @@ def create(name, url):
     with sql_data.create_connection() as db:
         sql = f"INSERT INTO menu_link (name,url,clicks) VALUES ('{link_name}','{url.strip()}',1)"
         cursor = db.execute(sql)
-    return True
+    return "Success"
 
 def update(name, url = "", clicks = -1):
     # Get rid of non-alphanumerics in name
