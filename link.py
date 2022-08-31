@@ -14,9 +14,9 @@ def get_ids():
 def get_id(url):
     link_data = get_ids()
     id = -1
-    for link in link_data:
-        if link[1].strip() == url.strip():
-            id = link[0]
+    for key, value in link_data.items():
+        if value[1].strip() == url.strip():
+            id = key
     return id
 
 def incr_clicks(linkid):
