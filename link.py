@@ -3,15 +3,15 @@ from pycloud import sql_data
 # Functions for working with links (i.e., URLs)
 
 def get_all():
-    l = {}
+    links = {}
     with sql_data.create_connection() as db:
         sql = "SELECT link_id, name, url, clicks FROM menu_link"
         cursor = db.execute(sql)
         for row in cursor:
-            l[row[0]] = [row[1], row[2], row[3]]
+            links[int(row[0])] = [row[1], row[2], int(row[3])]
     #for key,value in l.items():
     #    print(f"key: {key}, value: {value}") 
-    return l
+    return links
 
 def get_by_id(id):
     with sql_data.create_connection() as db:
