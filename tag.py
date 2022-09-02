@@ -2,7 +2,7 @@ from pycloud import sql_data
 
 # Functions for managing tags
 
-def get_ids():
+def get_all():
     t = {}
     with sql_data.create_connection() as db:
         sql = "SELECT tag_id, name FROM menu_tag"

@@ -13,15 +13,15 @@
 {% block content %}
 <div id="listcol">
   <ul>
+  <li><h3>Links</h3></li><br />
   <form action="{{ url_for('add_link') }}" method="POST">
-    <li><h3>Links</h3></li>
     <p><input type="submit" class="submit" name="action" value="Add" />
        Name: <input type="text" name="name" maxlength="255" value="" /> 
        URL:  <input type="text" name="url" maxlength="255" value="" /></p>
   </form>
 </ul>
 <ul>
-<form action ="{{ url_for('show_link') }}" method="POST">
+<!-- <form action ="{{ url_for('show_link') }}" method="POST">
     <fieldset>
       <legend>Links</legend>
       <p><input type="submit" class="submit" name="action" value="Select" /></p>
@@ -32,6 +32,17 @@
       {% endfor %}
     </fieldset>
   </form>
+  <p>Filter Links: <input type="text" class="search-box" placeholder="Filter" /></p> -->
+    <form action ="{{ url_for('show_link') }}" method="POST">
+      <p><input type="submit" class="submit" name="action" value="Select" /><br /></p>
+      <fieldset>
+	  <select name="link" id="link" size="20">
+        {% for link in link_list: %}
+	    <p class="search-list"><Option value="{{ link[2] }}" id="{{ link[0] }}"><b>{{ link[1] }}</b> "{{ link[2] }}"</option></p>
+        {% endfor %}
+      </select>
+	  </fieldset>
+	</form>
 </ul>
 </div>
 

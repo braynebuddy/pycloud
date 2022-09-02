@@ -7,7 +7,8 @@ jQuery(document).ready(function($){
     $('.tagcloud li').each(function(){
         $(this).attr('search-term', $(this).text().toLowerCase());
     });
-    $('.search-list').each(function(){
+    
+	$('.search-list').each(function(){
         $(this).attr('search-term', $(this).text().toLowerCase());
     });
       

@@ -128,7 +128,7 @@ body {
     margin-left: 10px;
 */
     padding-top: 65px;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
 }
 #search-box {
     text-align: right;
@@ -195,7 +195,13 @@ body {
 #listcol fieldset
 {
     width: 90%;
+	margin-bottom: 20px;
 }
+#listcol select
+{
+    width: 90%;
+}
+
 /* anchor styling */
 #listcol ul li a
 {

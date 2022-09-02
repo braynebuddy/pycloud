@@ -3,7 +3,8 @@ from sqlite3 import Error
 
 # pycloud database access
 def create_connection():
-    fn = '/home/ubuntu/pycloud/pycloud/pycloud.db'
+    fn = '/home/ubuntu/pycloud/pycloud/pycloud.db' # production
+    #fn = 'C:\\Users\\rbtha\\Documents\\Web Pages\\Oracle Ubuntu Server\\pycloud\\pycloud.db' #local
     conn = None
     try:
         conn = sqlite3.connect(fn)
