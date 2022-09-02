@@ -35,7 +35,10 @@ def links(thetag):
             link_id = id[0]
             link_desc = linkid[id[0]][0] # "Link {i} Description"
             link_url = linkid[id[0]][1] # Link {i} URL"
-            link_size = int(min_size + (math.log10(linkid[id[0]][2]) - min_qty) * size_step) #f"{100+2*id[0]}"
+            if linkid[id[0]][2] == 0:
+                link_size = int(min_size + (math.log10(1) - min_qty) * size_step) #f"{100+2*id[0]}"
+            else:
+                link_size = int(min_size + (math.log10(linkid[id[0]][2]) - min_qty) * size_step) #f"{100+2*id[0]}"
             link_colr = f"#11f"
             link_count = linkid[id[0]][2] # Link {i} clicks"
 
