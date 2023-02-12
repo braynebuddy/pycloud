@@ -60,6 +60,9 @@ def tags(numtags):
     min_size = 100
 
     linkcount = {}
+    for t in tagid:
+        linkcloud[t] = 0
+        
     for tl in taglink:
         if taglink[tl][0] in linkcount:
             linkcount[taglink[tl][0]] = linkcount[taglink[tl][0]] + linkid[taglink[tl][1]][2]
