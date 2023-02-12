@@ -70,7 +70,7 @@ def tags(numtags):
     for t in linkcount:
         if linkcount[t] > max_count:
             max_count = linkcount[t]
-        if linkcount[t] < min_count or min_count == 0:
+        if linkcount[t] > 0 and (linkcount[t] < min_count or min_count == 0):
             min_count = linkcount[t]
     
     max_qty = math.log10(max_count)
