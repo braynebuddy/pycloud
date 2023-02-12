@@ -21,6 +21,16 @@ def get_name(tagid):
                 tagname = row[1] 
     return tagname
 
+def get_id(tagname):
+    tagid = -1
+    with sql_data.create_connection() as db:
+        sql = f"SELECT tag_id, name FROM menu_tag WHERE name='{tagname.strip()}'"
+        cursor = db.execute(sql)
+        for row in cursor:
+            if row[1].strip() == tagname.strip():
+                tagid = int(row[0])
+    return tagid
+
 def get_links(tagid):
     linklist = []
     with sql_data.create_connection() as db:
@@ -30,3 +40,24 @@ def get_links(tagid):
             if row[1] == tagid or tagid == 0:
                 linklist.append(row[2])
     return linklist
+
+def exists(tagname):
+    # Check see if this tag exists in the database
+    return False if get_id(tagname) < 0 else True
+
+def create(tagname):
+    # Don't add this tag if it already exists
+    if  exists(tagname):
+        return False
+
+    # Get rid of non-alphanumerics in name
+    #link_name = ''.join(filter(str.isalnum, name))
+    #print(f"Changed link name from '{name}' to '{link_name}'")
+
+    # Add the new link to the database
+    with sql_data.create_connection() as db:
+        sql = f"INSERT INTO menu_tag (name) VALUES ('{tagname}')"
+        #print (sql)
+        cursor = db.execute(sql)
+    return True
+    

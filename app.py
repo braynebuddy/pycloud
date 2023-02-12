@@ -126,7 +126,7 @@ def create_app(testing: bool = True):
         else:
             return redirect("/login")
 
-    @app.route('/tag_detail')
+    @app.route('/tag_detail', methods=['POST','GET'])
     def show_tag():
         if session.get("name"):
             return render_template('admin.html', 
@@ -175,7 +175,9 @@ def create_app(testing: bool = True):
     def add_tag():
         if request.method == "POST":
             tag_name = request.form.get("name")
-            app.logger.error(f"NOT IMPLEMENTED: Tag Name is '{tag_name}'")
+            res = tag.create(tag_name)
+            if not res:
+                app.logger.error(f"ADD TAG: Not added: '{tag_name}'")
         return redirect("/admin")
 
     return app
