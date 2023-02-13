@@ -15,14 +15,14 @@
   <ul>
     <li><h3>Modify Link</h3></li><br />
     <form action ="{{ url_for('modify_link') }}" method="POST">
-      <p><input type="submit" class="submit" name="action" value="Delete" />
-      <input type="submit" class="submit" name="action" value="Update" /></p>
+      <p><input type="submit" class="submit" name="action" value="Delete" /></p>
 		  <fieldset><legend>Link</legend>
 		    <p><label for "id">Link ID:</label></label><input type="text" name="id" maxlength="255" value="{{ link[0] }}" readonly/></p>
-            <p><label for "url">URL:</label><input type="text" name="url" maxlength="255" value="{{ link[2] }}" /></p>
-            <p><label for "name">Name:</label><input type="text" name="name" maxlength="255" value="{{ link[1] }}" />
-               <label for "clicks">Clicks:</label><input type="text" name="clicks" maxlength="255" value="{{ link[3] }}" /></p>
+        <p><label for "url">URL:</label><input type="text" name="url" maxlength="255" value="{{ link[2] }}" /></p>
+        <p><label for "name">Name:</label><input type="text" name="name" maxlength="255" value="{{ link[1] }}" />
+           <label for "clicks">Clicks:</label><input type="text" name="clicks" maxlength="255" value="{{ link[3] }}" /></p>
 		  </fieldset>
+      <p><input type="submit" class="submit" name="action" value="Update" /></p>
 		  <fieldset><legend>Tags</legend>
             {% for tag in alltags: %}
 			  {% if tag[1] in linktags: %}

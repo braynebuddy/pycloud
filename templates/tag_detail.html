@@ -15,19 +15,13 @@
   <ul>
     <li><h3>Modify Tag</h3></li><br />
     <form action ="{{ url_for('modify_tag') }}" method="POST">
-        <p>
-          <input type="submit" class="submit" name="action" value="Delete" />
-          <input type="submit" class="submit" name="action" value="Update" />
-        </p>
-		  <fieldset><legend>Category Tag</legend>
-		    <p>
-                <label for "id">Tag ID:</label></label><input type="text" name="id" maxlength="255" value="{{ tag[0] }}" readonly/>
-            </p>
-            <p>
-                <label for "name">Name:</label><input type="text" name="name" maxlength="255" value="{{ tag[1] }}" />
-            </p>
-		  </fieldset>
-    </form>
+        <p><input type="submit" class="submit" name="action" value="Delete" /></p>
+	    <fieldset><legend>Category Tag</legend>
+		    <p><label for "id">Tag ID:</label></label><input type="text" name="id" maxlength="255" value="{{ tag[0] }}" readonly/></p>
+            <p><label for "name">Name:</label><input type="text" name="name" maxlength="255" value="{{ tag[1] }}" /></p>
+		</fieldset>
+        <p><input type="submit" class="submit" name="action" value="Update" /></p>
+        </form>
   </ul>
 </div>
 {% endblock %}

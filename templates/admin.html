@@ -49,7 +49,7 @@
       <fieldset>
         <select name="tag" id="tag" size="20">
           {% for tag in tag_list: %}
-          <p class="search-list"><Option value="{{ tag[1] }}" id="{{ tag[1] }}"><b>{{ tag[1] }}</b>. "{{ tag[0] }}"</option></p>
+          <p class="search-list"><Option value="{{ tag[1] }}" id="{{ tag[1] }}"><b>{{ tag[0] }}</b> ({{ tag[1] }})</option></p>
           {% endfor %}
         </select>
       </fieldset>

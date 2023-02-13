@@ -132,7 +132,7 @@ def create_app(testing: bool = True):
         if session.get("name"):
             if request.method == "POST":
                 selected = request.form.get("tag")
-            app.logger.error(f"SHOW_TAG: selected = '{selected}'")
+            #app.logger.error(f"SHOW_TAG: selected = '{selected}'")
             return render_template('tag_detail.html', 
                                 tag=tag.get_info(selected))
         else:
@@ -154,7 +154,12 @@ def create_app(testing: bool = True):
             res = link.create(link_name, link_url)
             if not res:
                 app.logger.error(f"ADD LINK: Not added: '{link_name}', '{link_url}'")
-        return redirect("/admin")
+                return redirect("/admin")
+
+        return render_template('link_detail.html', 
+                                link=link.get_by_url(link_url),
+                                linktags=link.get_tags(link[0]),
+                                alltags=cloud.tags(-1))
 
     @app.route('/modify_link', methods=['POST','GET'])
     def modify_link():
