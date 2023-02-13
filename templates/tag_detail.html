@@ -27,26 +27,6 @@
                 <label for "name">Name:</label><input type="text" name="name" maxlength="255" value="{{ tag[1] }}" />
             </p>
 		  </fieldset>
-		  <!--
-          <fieldset><legend>Tags</legend>
-            {% for tag in alltags: %}
-			  {% if tag[1] in linktags: %}
-				<p><input type="checkbox" name="checked_tags" value="{{ tag[1] }}" id="{{ tag[1] }}" checked />
-				   <label for="{{ tag[1] }}">{{ tag[0] }}</label></p>
-			  {% else: %}
-				<p><input type="checkbox" name="checked_tags" value="{{ tag[1] }}" id="{{ tag[1] }}" />
-				   <label for="{{ tag[1] }}">{{ tag[0] }}</label></p>
-			  {% endif %}
-		    {% endfor %}
-		  </fieldset>
-        -->
-        <!-- 
-          <fieldset>
-            <legend>Links</legend>
-            <p class="search-list"><input type="checkbox" name="checked_links" value="{{ link[1] }}" id="{{ link[0] }}" />
-            <label for="{{ link[0] }}">{{ link[1] }}</label></p>
-          </fieldset> 
-        -->
     </form>
   </ul>
 </div>
