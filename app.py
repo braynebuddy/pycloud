@@ -158,7 +158,7 @@ def create_app(testing: bool = True):
 
         return render_template('link_detail.html', 
                                 link=link.get_by_url(link_url),
-                                linktags=link.get_tags(get_by_url(link_url)[0]),
+                                linktags=link.get_tags(link.get_by_url(link_url)[0]),
                                 alltags=cloud.tags(-1))
 
     @app.route('/modify_link', methods=['POST','GET'])
