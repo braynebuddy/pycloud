@@ -130,7 +130,10 @@ def create_app(testing: bool = True):
     @app.route('/tag_detail', methods=['POST','GET'])
     def show_tag():
         if session.get("name"):
-            return render_template('admin.html', 
+            if request.method == "POST":
+                selected = request.form.get("link")
+            selected_link = link.get_by_url(selected)
+            return render_template('tag_detail.html', 
                                 link_list=cloud.tags(-1))
         else:
             return redirect("/login")
@@ -162,8 +165,8 @@ def create_app(testing: bool = True):
                 link_url = request.form.get("url")
                 link_clicks = int(request.form.get("clicks"))
                 link_tags = list(map(int, request.form.getlist("checked_tags")))
-                print (f"UPDATE: {link_id}.{link_name} URL='{link_url}' Clicks={link_clicks}")
-                print (f"UPDATE: taglist = {link_tags}")
+                #print (f"UPDATE: {link_id}.{link_name} URL='{link_url}' Clicks={link_clicks}")
+                #print (f"UPDATE: taglist = {link_tags}")
                 link.update(link_id, url=link_url, name=link_name, clicks=link_clicks, taglist=link_tags)
             
             if request.form['action'] == "Delete":
@@ -179,6 +182,21 @@ def create_app(testing: bool = True):
             res = tag.create(tag_name)
             if not res:
                 app.logger.error(f"ADD TAG: Not added: '{tag_name}'")
+        return redirect("/admin")
+
+    @app.route('/modify_tag', methods=['POST','GET'])
+    def modify_tag():
+        if request.method == "POST":
+            if request.form['action'] == "Update":
+                tag_id = int(request.form.get("id"))
+                tag_name = request.form.get("name")
+                #print (f"UPDATE: {tag_id}.{tag_name}")
+                tag.update(tag_id, name=tag_name)
+            
+            if request.form['action'] == "Delete":
+                tag_id = int(request.form.get("id"))
+                #print (f"DELETE: '{tag_id}'")
+                tag.delete(tag_id)
         return redirect("/admin")
 
     return app

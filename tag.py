@@ -31,6 +31,16 @@ def get_id(tagname):
                 tagid = int(row[0])
     return tagid
 
+def get_info(tagid):
+    with sql_data.create_connection() as db:
+        sql = f"SELECT tag_id, name FROM menu_tag WHERE tag_id={tagid}"
+        cursor = db.execute(sql)
+        for row in cursor:
+            if int(row[0]) == int(tagid):
+                return [int(row[0]), row[1]]
+    return []
+
+
 def get_links(tagid):
     linklist = []
     with sql_data.create_connection() as db:
@@ -61,3 +71,32 @@ def create(tagname):
         cursor = db.execute(sql)
     return True
     
+def update(tagid, tagname):
+
+    # Only update if this tag already exists
+    the_tag = get_info(tagid)
+    if len(the_tag) > 0:
+
+        # Update the link name information
+        if not tagname == "":
+            with sql_data.create_connection() as db:
+                sql = f"UPDATE menu_tag SET name='{tagname.strip()}' WHERE tag_id={tagid}"
+                cursor = db.execute(sql)
+
+    return
+
+def delete(tagid):
+    # Check to make sure this tag already exists
+    the_tag = get_info(tagid)
+    if len(the_tag) > 0:
+        # Remove any tag linkages
+        with sql_data.create_connection() as db:
+            sql = f"DELETE FROM taglink WHERE tag_id={tagid}"
+            #print (sql)
+            cursor = db.execute(sql)
+
+        # Delete the tag
+        with sql_data.create_connection() as db:
+            sql = f"DELETE FROM menu_tag WHERE tag_id={tagid}"
+            cursor = db.execute(sql)
+    return
