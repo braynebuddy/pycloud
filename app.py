@@ -131,10 +131,9 @@ def create_app(testing: bool = True):
     def show_tag():
         if session.get("name"):
             if request.method == "POST":
-                selected = request.form.get("tag")
-            selected_tag = tag.get_by_url(selected)
+                selected = request.form.get("tagid")
             return render_template('tag_detail.html', 
-                                link_list=cloud.tags(-1))
+                                tag=tag.get_info(selected))
         else:
             return redirect("/login")
 
