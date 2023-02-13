@@ -13,45 +13,34 @@
 {% block content %}
 <div id="listcol">
   <ul>
-  <li><h3>Links</h3></li><br />
-  <form action="{{ url_for('add_link') }}" method="POST">
-    <p><input type="submit" class="submit" name="action" value="Add" />
-       Name: <input type="text" name="name" maxlength="255" value="" /> 
-       URL:  <input type="text" name="url" maxlength="255" value="" /></p>
-  </form>
-</ul>
-<ul>
-<!-- <form action ="{{ url_for('show_link') }}" method="POST">
-    <fieldset>
-      <legend>Links</legend>
-      <p><input type="submit" class="submit" name="action" value="Select" /></p>
-      <p>Filter Links: <input type="text" class="search-box" placeholder="Filter" /></p>
-      {% for link in link_list: %}
-      <p class="search-list"><input type="checkbox" name="checked_links" value="{{ link[1] }}" id="{{ link[0] }}" />
-      <label for="{{ link[0] }}">{{ link[1] }}</label></p>
-      {% endfor %}
-    </fieldset>
-  </form>
-  <p>Filter Links: <input type="text" class="search-box" placeholder="Filter" /></p> -->
+    <li><h3>Links</h3></li>
+    <br />
+    <form action="{{ url_for('add_link') }}" method="POST">
+      <p><input type="submit" class="submit" name="action" value="Add" />
+        Name: <input type="text" name="name" maxlength="255" value="" /> 
+        URL:  <input type="text" name="url" maxlength="255" value="" /></p>
+    </form>
+  </ul>
+  <ul>
     <form action ="{{ url_for('show_link') }}" method="POST">
       <p><input type="submit" class="submit" name="action" value="Select" /><br /></p>
       <fieldset>
-	  <select name="link" id="link" size="20">
-        {% for link in link_list: %}
-	    <p class="search-list"><Option value="{{ link[2] }}" id="{{ link[0] }}"><b>{{ link[1] }}</b> "{{ link[2] }}"</option></p>
-        {% endfor %}
-      </select>
-	  </fieldset>
-	</form>
-</ul>
+	      <select name="link" id="link" size="20">
+          {% for link in link_list: %}
+	        <p class="search-list"><Option value="{{ link[2] }}" id="{{ link[0] }}"><b>{{ link[1] }}</b> "{{ link[2] }}"</option></p>
+          {% endfor %}
+        </select>
+	    </fieldset>
+	  </form>
+  </ul>
 </div>
 
 <div id="listcol">
   <ul>
-  <form action="{{ url_for('add_tag') }}" method="POST">
-    <li><h3>Category Tags</h3></li>
-    <p><input type="submit" class="submit" name="action" value="Add Tag" />
-       Name: <input type="text" name="name" maxlength="255" value="" /></p>
+    <form action="{{ url_for('add_tag') }}" method="POST">
+      <li><h3>Category Tags</h3></li>
+      <p><input type="submit" class="submit" name="action" value="Add Tag" />
+         Name: <input type="text" name="name" maxlength="255" value="" /></p>
     </form>
   </ul>
   <ul>
@@ -63,18 +52,8 @@
           <p class="search-list"><Option value="{{ tag[1] }}" id="{{ tag[1] }}"><b>{{ tag[1] }}</b>. "{{ tag[0] }}"</option></p>
           {% endfor %}
         </select>
-
-        <!-- 
-        <legend>Category Tags</legend>
-          
-        <p>Filter Categories: <input type="text" class="search-box" placeholder="Filter" /></p>
-        {% for tag in tag_list: %}
-          <p class="search-list"><input type="checkbox" name="checked_tags" value="{{ tag[0] }}" id="{{ tag[0] }}" />
-          <label for="{{ tag[1] }}">{{ tag[0] }}</label></p>
-        {% endfor %}
-        -->
-       </fieldset>
-      </form>
-    </ul>
-    </div> 
+      </fieldset>
+    </form>
+  </ul>
+</div> 
 {% endblock %}
