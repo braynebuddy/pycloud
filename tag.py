@@ -33,7 +33,7 @@ def get_id(tagname):
 
 def get_info(tagid):
     with sql_data.create_connection() as db:
-        sql = f"SELECT tag_id, name FROM menu_tag WHERE tag_id={tagid}"
+        sql = f"SELECT tag_id, name FROM menu_tag WHERE tag_id={int(tagid)}"
         cursor = db.execute(sql)
         for row in cursor:
             if int(row[0]) == int(tagid):
