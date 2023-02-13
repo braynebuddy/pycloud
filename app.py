@@ -154,7 +154,7 @@ def create_app(testing: bool = True):
             res = link.create(link_name, link_url)
             if not res:
                 app.logger.error(f"ADD LINK: Not added: '{link_name}', '{link_url}'")
-                return redirect("/admin")
+                #return redirect("/admin")
 
         return render_template('link_detail.html', 
                                 link=link.get_by_url(link_url),
