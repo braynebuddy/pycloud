@@ -131,8 +131,8 @@ def create_app(testing: bool = True):
     def show_tag():
         if session.get("name"):
             if request.method == "POST":
-                selected = request.form.get("link")
-            selected_link = link.get_by_url(selected)
+                selected = request.form.get("tag")
+            selected_tag = tag.get_by_url(selected)
             return render_template('tag_detail.html', 
                                 link_list=cloud.tags(-1))
         else:
