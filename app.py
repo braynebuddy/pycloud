@@ -131,10 +131,10 @@ def create_app(testing: bool = True):
     def show_tag():
         if session.get("name"):
             if request.method == "POST":
-                selected = request.form.get("tagid")
+                selected = request.form.get("tag")
             app.logger.error(f"SHOW_TAG: selected = '{selected}'")
             return render_template('tag_detail.html', 
-                                tag=tag.get_info(73))
+                                tag=tag.get_info(selected))
         else:
             return redirect("/login")
 
