@@ -134,7 +134,7 @@ def create_app(testing: bool = True):
                 selected = request.form.get("tagid")
             app.logger.error(f"SHOW_TAG: selected = '{selected}'")
             return render_template('tag_detail.html', 
-                                tag=tag.get_info(selected))
+                                tag=tag.get_info(73))
         else:
             return redirect("/login")
 
